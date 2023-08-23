@@ -19,21 +19,21 @@ const persistConfigTheme = {
   storage,
 };
 
-// const persistedReducerTheme = persistReducer(
-//   persistConfigTheme,
-//   modeThemeReducer
-// );
+const persistedReducerTheme = persistReducer(
+  persistConfigTheme,
+  modeThemeReducer
+);
 
-// const persistedReducerContacts = persistReducer(
-//   persistConfigContacts,
-//   contactsReducer
-// );
+const persistedReducerContacts = persistReducer(
+  persistConfigContacts,
+  contactsReducer
+);
 
 //
 export const reducer = combineReducers({
-  theme: persistReducer(persistConfigTheme, modeThemeReducer),
+  theme: persistedReducerTheme,
   // theme: modeThemeReducer,
   // contacts: contactsReducer,
-  contacts: persistReducer(persistConfigContacts, contactsReducer),
+  contacts: persistedReducerContacts,
   filter: filterReducer,
 });
