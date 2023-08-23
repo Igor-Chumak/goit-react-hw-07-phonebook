@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles, darkTheme, lightTheme, theme } from 'styles';
-import { getModeTheme } from 'store/selectors';
+import { selectModeTheme } from 'store';
 
 const DarkThemeProvider = ({ children }) => {
-  const modeTheme = useSelector(getModeTheme);
+  const modeTheme = useSelector(selectModeTheme);
   return (
     <ThemeProvider
       theme={{

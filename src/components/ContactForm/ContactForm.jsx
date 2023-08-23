@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'store/contactsSlice';
-import { getContacts } from 'store/selectors';
+import { addContact, selectContacts } from 'store';
 import { Notification } from 'components';
 import {
   ContactFormForm,
@@ -16,7 +15,7 @@ export const ContactForm = () => {
   const [notification, setNotification] = useState('');
 
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
 
   const searchContact = name => {
     return contacts.find(

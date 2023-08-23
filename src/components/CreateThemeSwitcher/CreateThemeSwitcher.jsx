@@ -1,11 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { getModeTheme } from 'store/selectors';
-import { setModeTheme } from 'store/themeSlice';
+import { selectModeTheme, setModeTheme } from 'store';
 import style from './CreateThemeSwitcher.module.css';
 
 export const CreateThemeSwitcher = () => {
   const dispatch = useDispatch();
-  const modeTheme = useSelector(getModeTheme);
+  const modeTheme = useSelector(selectModeTheme);
   const modeThemeChecked = modeTheme === 'dark' ? true : false;
 
   const handleToggleTheme = () => {
