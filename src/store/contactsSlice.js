@@ -4,7 +4,11 @@ import { INITIAL_CONTACTS } from 'data/initial';
 
 const contactsSlice = createSlice({
   name: 'contacts',
-  initialState: INITIAL_CONTACTS,
+  initialState: {
+    item: INITIAL_CONTACTS,
+    isLoading: false,
+    error: null,
+  },
   reducers: {
     addContact: {
       reducer(state, action) {
