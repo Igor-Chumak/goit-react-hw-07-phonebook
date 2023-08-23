@@ -4,3 +4,4 @@ export * from 'store/reducers';
 export * from 'store/contactsSlice';
 export * from 'store/filterSlice';
 export * from 'store/themeSlice';
+export * from 'store/constants';
