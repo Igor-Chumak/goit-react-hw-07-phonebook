@@ -8,8 +8,8 @@ export const ContactList = () => {
 
   return (
     <ContactListBox>
-      {contactsToList.map(({ id, name, number }) => (
-        <ContactItems name={name} number={number} id={id} key={id} />
+      {contactsToList.map(contact => (
+        <ContactItems {...contact} key={contact.id} />
       ))}
     </ContactListBox>
   );
