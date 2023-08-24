@@ -25,7 +25,7 @@ const persistConfigContacts = {
 // transform state being rehydrated
 // (outboundState, key) => {
 // convert mySet back to a Set.
-// return { ...outboundState, mySet: [...outboundState] };
+// return { ...outboundState, mySet: new Set(outboundState.mySet) };
 // }
 
 // define which reducers this transform gets called for.
