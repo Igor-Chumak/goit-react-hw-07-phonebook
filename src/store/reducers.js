@@ -35,7 +35,8 @@ const persistConfigContacts = {
 const persistConfigTheme = {
   key: LOCAL_STORAGE_KEY + '_theme',
   storage,
-  // transforms: [SetTransform],
+  // stateReconciler: autoMergeLevel2
+  transforms: [SetTransform],
 };
 
 const persistedReducerTheme = persistReducer(
