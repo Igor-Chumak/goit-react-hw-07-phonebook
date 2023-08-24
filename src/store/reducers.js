@@ -6,7 +6,7 @@ import { modeThemeReducer } from './themeSlice';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { LOCAL_STORAGE_KEY } from 'store/constants';
-import createTransform from 'redux-persist/es/createTransform';
+// import createTransform from 'redux-persist/es/createTransform';
 
 const persistConfigContacts = {
   key: LOCAL_STORAGE_KEY,
@@ -20,7 +20,7 @@ const persistConfigContacts = {
 // (inboundState, key) => {
 // convert mySet to an Array.
 // return { ...inboundState, mySet: [...inboundState] };
-// },
+// }
 
 // transform state being rehydrated
 // (outboundState, key) => {
