@@ -36,7 +36,7 @@ const persistConfigTheme = {
   key: LOCAL_STORAGE_KEY + '_theme',
   storage,
   // stateReconciler: autoMergeLevel2
-  transforms: [SetTransform],
+  // transforms: [SetTransform],
 };
 
 const persistedReducerTheme = persistReducer(
