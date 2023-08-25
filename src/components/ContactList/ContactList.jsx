@@ -9,8 +9,9 @@ import { api } from 'store';
 export const ContactList = () => {
   const dispatch = useDispatch();
   const contactsToList = useSelector(selectVisibleContacts);
+  // const { isLoading, error } = useSelector(selectContacts);
   useEffect(() => {
-    dispatch(api.getQuery('1'));
+    dispatch(api.getQuery('8'));
   }, [dispatch]);
 
   return (

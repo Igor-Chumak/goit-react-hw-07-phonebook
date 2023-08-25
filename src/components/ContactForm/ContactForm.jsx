@@ -15,7 +15,7 @@ export const ContactForm = () => {
   const [notification, setNotification] = useState('');
 
   const dispatch = useDispatch();
-  const contacts = useSelector(selectContacts);
+  const { items: contacts } = useSelector(selectContacts);
 
   const searchContact = name => {
     return contacts.find(

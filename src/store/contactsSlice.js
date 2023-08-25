@@ -5,7 +5,7 @@ import { INITIAL_CONTACTS } from 'data/initial';
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState: {
-    item: INITIAL_CONTACTS,
+    items: INITIAL_CONTACTS,
     isLoading: false,
     error: null,
   },
@@ -17,7 +17,7 @@ const contactsSlice = createSlice({
     fetchingSuccess(state, { payload }) {
       state.isLoading = false;
       // console.log('success payload:>> ', payload);
-      state.item = payload; //???
+      state.items = payload; //???
     },
     fetchingError(state, { payload }) {
       state.isLoading = false;
@@ -27,7 +27,7 @@ const contactsSlice = createSlice({
     //
     addContact: {
       reducer(state, action) {
-        state.item.push(action.payload);
+        state.items.push(action.payload);
       },
       prepare(contact) {
         return {
@@ -40,10 +40,10 @@ const contactsSlice = createSlice({
     },
 
     deleteContact(state, action) {
-      const index = state.item.findIndex(
+      const index = state.items.findIndex(
         contact => contact.id === action.payload
       );
-      state.item.splice(index, 1);
+      state.items.splice(index, 1);
     },
   },
 });
