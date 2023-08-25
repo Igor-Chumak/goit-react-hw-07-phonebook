@@ -10,7 +10,7 @@ export const ContactList = () => {
   const dispatch = useDispatch();
   const contactsToList = useSelector(selectVisibleContacts);
   useEffect(() => {
-    dispatch(api.getQuery());
+    dispatch(api.getQuery('1'));
   }, [dispatch]);
 
   return (
