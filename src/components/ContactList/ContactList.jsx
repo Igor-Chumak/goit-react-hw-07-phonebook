@@ -11,7 +11,7 @@ export const ContactList = () => {
   const contactsToList = useSelector(selectVisibleContacts);
   // const { isLoading, error } = useSelector(selectContacts);
   useEffect(() => {
-    dispatch(api.getQuery('8'));
+    dispatch(api.getQuery());
   }, [dispatch]);
 
   return (

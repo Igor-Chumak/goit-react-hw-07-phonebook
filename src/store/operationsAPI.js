@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { fetchingInProgress, fetchingSuccess, fetchingError } from 'store';
 const API_KEY = '64e5ff5009e64530d17f6928';
-const PATHNAME = 'contacts/';
+const PATHNAME = 'contacts1/';
 axios.defaults.baseURL = `https://${API_KEY}.mockapi.io/${PATHNAME}`;
 axios.defaults.headers = {};
 axios.defaults.params = {};
