@@ -10,6 +10,21 @@ const contactsSlice = createSlice({
     error: null,
   },
   reducers: {
+    fetchingInProgress(state) {
+      state.isLoading = true;
+      state.error = '';
+    },
+    fetchingSuccess(state, { payload }) {
+      state.isLoading = false;
+      // console.log('success payload:>> ', payload);
+      state.item = payload; //???
+    },
+    fetchingError(state, { payload }) {
+      state.isLoading = false;
+      // console.log('rejected payload:>> ', payload);
+      state.error = `${payload.message} <- ${payload.response.request.statusText}`; //???
+    },
+    //
     addContact: {
       reducer(state, action) {
         state.item.push(action.payload);
@@ -33,5 +48,11 @@ const contactsSlice = createSlice({
   },
 });
 
-export const { addContact, deleteContact } = contactsSlice.actions;
+export const {
+  fetchingInProgress,
+  fetchingSuccess,
+  fetchingError,
+  addContact,
+  deleteContact,
+} = contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;

@@ -7,12 +7,12 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { LOCAL_STORAGE_KEY } from 'store/constants';
 
-const persistConfigContacts = {
-  key: LOCAL_STORAGE_KEY,
-  storage,
-  whitelist: ['item'],
-  blacklist: [],
-};
+// const persistConfigContacts = {
+//   key: LOCAL_STORAGE_KEY,
+//   storage,
+//   whitelist: ['item'],
+//   blacklist: [],
+// };
 
 const persistConfigTheme = {
   key: LOCAL_STORAGE_KEY + '_theme',
@@ -25,16 +25,16 @@ const persistedReducerTheme = persistReducer(
   modeThemeReducer
 );
 
-const persistedReducerContacts = persistReducer(
-  persistConfigContacts,
-  contactsReducer
-);
+// const persistedReducerContacts = persistReducer(
+//   persistConfigContacts,
+//   contactsReducer
+// );
 
 //
 export const reducer = combineReducers({
   theme: persistedReducerTheme,
   // theme: modeThemeReducer,
-  // contacts: contactsReducer,
-  contacts: persistedReducerContacts,
+  contacts: contactsReducer,
+  // contacts: persistedReducerContacts,
   filter: filterReducer,
 });
