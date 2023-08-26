@@ -1,7 +1,7 @@
 //  import PropTypes from 'prop-types';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { fetchingInProgress, fetchingSuccess, fetchingError } from 'store';
+// import { fetchingInProgress, fetchingSuccess, fetchingError } from 'store';
 const API_KEY = '64e5ff5009e64530d17f6928';
 const PATHNAME = 'contacts/';
 axios.defaults.baseURL = `https://${API_KEY}.mockapi.io/${PATHNAME}`;
@@ -39,9 +39,9 @@ export const getQuery = createAsyncThunk(
 
 export const deleteQuery = createAsyncThunk(
   'contacts/fetch.delete',
-  async (contactId = '', thunkAPI) => {
+  async (contact, thunkAPI) => {
     try {
-      const { data } = await axios.delete(`${contactId}`);
+      const { data } = await axios.delete(contact);
       return data;
     } catch (error) {
       // console.log('error API:>> ', error);
@@ -50,11 +50,14 @@ export const deleteQuery = createAsyncThunk(
   }
 );
 
-export const postQuery = createAsyncThunk(
+export const addContact = createAsyncThunk(
   'contacts/fetch.post',
-  async (contactId = '', thunkAPI) => {
+  async (contact, thunkAPI) => {
     try {
-      const { data } = await axios.post(`${contactId}`);
+      console.log('contact :>> ', contact);
+      const params = JSON.stringify(contact);
+      const { data } = await axios.post('', params);
+      console.log('added Contact:>> ', data);
       return data;
     } catch (error) {
       // console.log('error API:>> ', error);

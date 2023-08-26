@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 import { INITIAL_CONTACTS } from 'data/initial';
-import { getQuery, postQuery } from 'store';
+import { getQuery, addContact } from 'store/operationsAPI';
 
 const contactsSlice = createSlice({
   name: 'contacts',
@@ -11,7 +11,7 @@ const contactsSlice = createSlice({
     error: null,
   },
   extraReducers: {
-    // get
+    // getQuery
     [getQuery.pending](state, action) {
       state.isLoading = true;
       state.error = '';
@@ -25,56 +25,54 @@ const contactsSlice = createSlice({
       state.isLoading = false;
       // console.log('Thunk rejected:>> ', payload);
       state.error = payload;
-      // state.error = `${error.message} <- ${error.code}`;
     },
-    // post
-    [postQuery.pending](state, action) {
+    // addContact
+    [addContact.pending](state, action) {
       state.isLoading = true;
       state.error = '';
     },
-    [postQuery.fulfilled](state, { payload }) {
+    [addContact.fulfilled](state, { payload }) {
       state.isLoading = false;
       // console.log('Thunk success:>> ', payload);
-      state.items = payload;
+      state.items.push(payload);
     },
-    [postQuery.rejected](state, { payload }) {
+    [addContact.rejected](state, { payload }) {
       state.isLoading = false;
       // console.log('Thunk rejected:>> ', payload);
       state.error = payload;
-      // state.error = `${error.message} <- ${error.code}`;
     },
   },
 
   reducers: {
-    fetchingInProgress(state) {
-      state.isLoading = true;
-      state.error = '';
-    },
-    fetchingSuccess(state, { payload }) {
-      state.isLoading = false;
-      // console.log('success payload:>> ', payload);
-      state.items = payload;
-    },
-    fetchingError(state, { payload }) {
-      state.isLoading = false;
-      // console.log('payload :>> ', payload);
-      state.error = payload;
-      // state.error = `${payload.message} <- ${payload.response.request.statusText}`;
-    },
+    // fetchingInProgress(state) {
+    //   state.isLoading = true;
+    //   state.error = '';
+    // },
+    // fetchingSuccess(state, { payload }) {
+    //   state.isLoading = false;
+    //   // console.log('success payload:>> ', payload);
+    //   state.items = payload;
+    // },
+    // fetchingError(state, { payload }) {
+    //   state.isLoading = false;
+    //   // console.log('payload :>> ', payload);
+    //   state.error = payload;
+    //   // state.error = `${payload.message} <- ${payload.response.request.statusText}`;
+    // },
     //
-    addContact: {
-      reducer(state, action) {
-        state.items.push(action.payload);
-      },
-      prepare(contact) {
-        return {
-          payload: {
-            ...contact,
-            id: nanoid(),
-          },
-        };
-      },
-    },
+    // addContact: {
+    //   reducer(state, action) {
+    //     state.items.push(action.payload);
+    //   },
+    //   prepare(contact) {
+    //     return {
+    //       payload: {
+    //         ...contact,
+    //         id: nanoid(),
+    //       },
+    //     };
+    //   },
+    // },
 
     deleteContact(state, action) {
       const index = state.items.findIndex(
@@ -86,10 +84,10 @@ const contactsSlice = createSlice({
 });
 
 export const {
-  fetchingInProgress,
-  fetchingSuccess,
-  fetchingError,
-  addContact,
+  // fetchingInProgress,
+  // fetchingSuccess,
+  // fetchingError,
+  // addContact,
   deleteContact,
 } = contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;

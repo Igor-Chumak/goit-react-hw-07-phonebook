@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact, selectContacts } from 'store';
 import { Notification } from 'components';
+import { selectContacts } from 'store';
+import { addContact } from 'store/operationsAPI';
 import {
   ContactFormForm,
   ContactFormLabel,
