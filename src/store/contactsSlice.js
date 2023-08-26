@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { nanoid } from 'nanoid';
 import { INITIAL_CONTACTS } from 'data/initial';
+import { getQuery } from './operationsAPI';
 
 const contactsSlice = createSlice({
   name: 'contacts',
@@ -9,6 +10,23 @@ const contactsSlice = createSlice({
     isLoading: false,
     error: null,
   },
+  extraReducers: {
+    [getQuery.pending](state, action) {
+      state.isLoading = true;
+      state.error = '';
+    },
+    [getQuery.fulfilled](state, { payload }) {
+      state.isLoading = false;
+      console.log('Thunk success:>> ', payload);
+      state.items = payload;
+    },
+    [getQuery.rejected](state, { error }) {
+      state.isLoading = false;
+      console.log('Thunk rejected:>> ', error);
+      state.error = `${error.message} <- ${error.code}`;
+    },
+  },
+
   reducers: {
     fetchingInProgress(state) {
       state.isLoading = true;
@@ -21,7 +39,9 @@ const contactsSlice = createSlice({
     },
     fetchingError(state, { payload }) {
       state.isLoading = false;
+      // console.log('payload :>> ', payload);
       state.error = payload;
+      // state.error = `${payload.message} <- ${payload.response.request.statusText}`;
     },
     //
     addContact: {
