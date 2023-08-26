@@ -14,7 +14,11 @@ export const getQuery = (contactId = '') => {
       const { data } = await axios.get(`${contactId}`);
       dispatch(fetchingSuccess(data));
     } catch (error) {
-      dispatch(fetchingError(error));
+      dispatch(
+        fetchingError(
+          `${error.message} <- ${error.response.request.statusText}`
+        )
+      );
     }
   };
 };

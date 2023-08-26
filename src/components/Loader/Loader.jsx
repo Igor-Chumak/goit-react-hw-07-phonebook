@@ -22,7 +22,7 @@ export const Loader = () => {
       width="80"
       ariaLabel="vortex-loading"
       wrapperStyle={{}}
-      wrapperClass="vortex-wrapper"
+      wrapperClass={css.loader}
       colors={['red', 'green', 'blue', 'yellow', 'orange', 'purple']}
     />
   );

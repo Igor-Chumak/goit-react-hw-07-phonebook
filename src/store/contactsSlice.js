@@ -17,12 +17,11 @@ const contactsSlice = createSlice({
     fetchingSuccess(state, { payload }) {
       state.isLoading = false;
       // console.log('success payload:>> ', payload);
-      state.items = payload; //???
+      state.items = payload;
     },
     fetchingError(state, { payload }) {
       state.isLoading = false;
-      // console.log('rejected payload:>> ', payload);
-      state.error = `${payload.message} <- ${payload.response.request.statusText}`; //???
+      state.error = payload;
     },
     //
     addContact: {
