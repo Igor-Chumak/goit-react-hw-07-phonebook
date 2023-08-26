@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { nanoid } from 'nanoid';
 import { INITIAL_CONTACTS } from 'data/initial';
-import { getQuery } from './operationsAPI';
+import { getQuery, postQuery } from 'store';
 
 const contactsSlice = createSlice({
   name: 'contacts',
@@ -11,18 +11,35 @@ const contactsSlice = createSlice({
     error: null,
   },
   extraReducers: {
+    // get
     [getQuery.pending](state, action) {
       state.isLoading = true;
       state.error = '';
     },
     [getQuery.fulfilled](state, { payload }) {
       state.isLoading = false;
-      console.log('Thunk success:>> ', payload);
+      // console.log('Thunk success:>> ', payload);
       state.items = payload;
     },
     [getQuery.rejected](state, { payload }) {
       state.isLoading = false;
-      console.log('Thunk rejected:>> ', payload);
+      // console.log('Thunk rejected:>> ', payload);
+      state.error = payload;
+      // state.error = `${error.message} <- ${error.code}`;
+    },
+    // post
+    [postQuery.pending](state, action) {
+      state.isLoading = true;
+      state.error = '';
+    },
+    [postQuery.fulfilled](state, { payload }) {
+      state.isLoading = false;
+      // console.log('Thunk success:>> ', payload);
+      state.items = payload;
+    },
+    [postQuery.rejected](state, { payload }) {
+      state.isLoading = false;
+      // console.log('Thunk rejected:>> ', payload);
       state.error = payload;
       // state.error = `${error.message} <- ${error.code}`;
     },
