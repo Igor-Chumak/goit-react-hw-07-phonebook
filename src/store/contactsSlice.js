@@ -20,10 +20,11 @@ const contactsSlice = createSlice({
       console.log('Thunk success:>> ', payload);
       state.items = payload;
     },
-    [getQuery.rejected](state, { error }) {
+    [getQuery.rejected](state, { payload }) {
       state.isLoading = false;
-      console.log('Thunk rejected:>> ', error);
-      state.error = `${error.message} <- ${error.code}`;
+      console.log('Thunk rejected:>> ', payload);
+      state.error = payload;
+      // state.error = `${error.message} <- ${error.code}`;
     },
   },
 
