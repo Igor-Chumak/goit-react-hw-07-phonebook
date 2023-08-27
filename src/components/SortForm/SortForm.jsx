@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { SORT_BY, selectSortBy, setSortBy } from 'store';
-import {} from '../SortForm/SortForm.styled';
+import { SortLabel, SortInput, SortWrapper } from '../SortForm/SortForm.styled';
 
 export const SortForm = () => {
   const dispatch = useDispatch();
@@ -11,38 +11,38 @@ export const SortForm = () => {
   };
 
   return (
-    <div aria-label="Basic radio toggle sort type">
+    <SortWrapper aria-label="Basic radio toggle sort type">
       Sort by
-      <label>
+      <SortLabel>
         None
-        <input
+        <SortInput
           type="radio"
           name="sortby"
           value={SORT_BY.NONE}
           checked={sortby === SORT_BY.NONE}
           onChange={onChangeSortValue}
         />
-      </label>
-      <label>
+      </SortLabel>
+      <SortLabel>
         [A...Z]
-        <input
+        <SortInput
           type="radio"
           name="sortby"
           value={SORT_BY.AZ_SORT}
           checked={sortby === SORT_BY.AZ_SORT}
           onChange={onChangeSortValue}
         />
-      </label>
-      <label>
+      </SortLabel>
+      <SortLabel>
         [Z...A]
-        <input
+        <SortInput
           type="radio"
           name="sortby"
           value={SORT_BY.ZA_SORT}
           checked={sortby === SORT_BY.ZA_SORT}
           onChange={onChangeSortValue}
         />
-      </label>
-    </div>
+      </SortLabel>
+    </SortWrapper>
   );
 };

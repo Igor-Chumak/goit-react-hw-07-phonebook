@@ -14,7 +14,6 @@ export const getContactsThunk = createAsyncThunk(
       const { data } = await axios.get(`${PATHNAME}${contactId}`);
       return data;
     } catch (error) {
-      // console.log('error API:>> ', error);
       return thunkAPI.rejectWithValue(`${error.message} <- ${error.code}`);
     }
   }
