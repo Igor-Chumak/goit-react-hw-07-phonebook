@@ -64,16 +64,4 @@ export const SortLabel = styled.label`
 
 export const SortInput = styled.input`
   display: none;
-  /* width: 80%; */
-  /* padding: ${props => props.theme.spacing(2)}; */
-  /* font-weight: 600; */
-  /* font-size: ${props => props.theme.fontSizes.small}; */
-  /* color: ${props => props.theme.colors.gray}; */
-  /* outline: 1px solid yellow; */
-  /* &:checked {
-    color: initial;
-  } */
-  /* &:focus {
-    color: initial;
-  } */
 `;
