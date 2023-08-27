@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Notification } from 'components';
 import { selectContacts } from 'store';
-import { addContact } from 'store/operationsAPI';
+import { addContactThunk } from 'store/operationsAPI';
 import {
   ContactFormForm,
   ContactFormLabel,
@@ -29,7 +29,7 @@ export const ContactForm = () => {
     if (name === '' || number === '') return;
     const searchResult = searchContact(name);
     if (!searchResult) {
-      dispatch(addContact({ name, number }));
+      dispatch(addContactThunk({ name, number }));
       e.currentTarget.reset();
       setName('');
       setNumber('');

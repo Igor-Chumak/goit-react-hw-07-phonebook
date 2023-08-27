@@ -8,7 +8,7 @@ export const ContactList = () => {
   const dispatch = useDispatch();
   const contactsToList = useSelector(selectVisibleContacts);
   useEffect(() => {
-    dispatch(api.getContacts());
+    dispatch(api.getContactsThunk());
   }, [dispatch]);
 
   return (
