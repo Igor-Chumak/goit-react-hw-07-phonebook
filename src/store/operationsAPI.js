@@ -4,7 +4,8 @@ import axios from 'axios';
 // import { fetchingInProgress, fetchingSuccess, fetchingError } from 'store';
 const API_KEY = '64e5ff5009e64530d17f6928';
 const PATHNAME = 'contacts/';
-axios.defaults.baseURL = `https://${API_KEY}.mockapi.io/${PATHNAME}`;
+axios.defaults.baseURL = `https://${API_KEY}.mockapi.io/`;
+// axios.defaults.baseURL = `https://${API_KEY}.mockapi.io/${PATHNAME}`;
 axios.defaults.headers = {};
 axios.defaults.params = {};
 
@@ -12,7 +13,8 @@ export const getQuery = createAsyncThunk(
   'contacts/fetch.get',
   async (contactId = '', thunkAPI) => {
     try {
-      const { data } = await axios.get(`${contactId}`);
+      const { data } = await axios.get(`${PATHNAME}${contactId}`);
+      // const { data } = await axios.get(`${contactId}`);
       return data;
     } catch (error) {
       // console.log('error API:>> ', error);
@@ -37,11 +39,12 @@ export const getQuery = createAsyncThunk(
 //   };
 // };
 
-export const deleteQuery = createAsyncThunk(
-  'contacts/fetch.delete',
+export const addContact = createAsyncThunk(
+  'contacts/fetch.post',
   async (contact, thunkAPI) => {
     try {
-      const { data } = await axios.delete(contact);
+      const { data } = await axios.post(PATHNAME, contact);
+      console.log('added Contact:>> ', data);
       return data;
     } catch (error) {
       // console.log('error API:>> ', error);
@@ -50,14 +53,12 @@ export const deleteQuery = createAsyncThunk(
   }
 );
 
-export const addContact = createAsyncThunk(
-  'contacts/fetch.post',
-  async (contact, thunkAPI) => {
+export const deleteContact = createAsyncThunk(
+  'contacts/fetch.delete',
+  async (contactId, thunkAPI) => {
     try {
-      console.log('contact :>> ', contact);
-      const params = JSON.stringify(contact);
-      const { data } = await axios.post('', params);
-      console.log('added Contact:>> ', data);
+      const { data } = await axios.delete(`${PATHNAME}${contactId}`);
+      console.log('deleted Contact:>> ', data);
       return data;
     } catch (error) {
       // console.log('error API:>> ', error);
