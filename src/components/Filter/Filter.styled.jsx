@@ -1,5 +1,20 @@
 import styled from 'styled-components';
 
+export const FilterWrapper = styled.div`
+  /* display: block; */
+  /* position: relative; */
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  /* margin-bottom: ${props => props.theme.spacing(3)}; */
+  /* max-width: ${props => props.theme.spacing(80)}; */
+  /* padding-bottom: ${props => props.theme.spacing(2)}; */
+  /* padding-left: ${props => props.theme.spacing(5)}; */
+  /* padding-right: ${props => props.theme.spacing(5)}; */
+  /* font-weight: 600; */
+  /* line-height: 1.5; */
+  /* outline: 1px solid; */
+`;
+
 export const FilterLabel = styled.label`
   display: block;
   position: relative;

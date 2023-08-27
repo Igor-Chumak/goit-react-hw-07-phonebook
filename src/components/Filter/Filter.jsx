@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Clear, SortForm } from 'components';
 import { setFilter, selectFilter } from 'store';
-import { FilterLabel, FilterInput } from './Filter.styled';
+import { FilterWrapper, FilterLabel, FilterInput } from './Filter.styled';
 
 export const Filter = () => {
   const dispatch = useDispatch();
@@ -9,7 +9,7 @@ export const Filter = () => {
   const handleChangeInputFilter = filter => dispatch(setFilter(filter));
 
   return (
-    <>
+    <FilterWrapper>
       <FilterLabel>
         Find contacts by name
         <FilterInput
@@ -27,6 +27,6 @@ export const Filter = () => {
         </Clear>
       </FilterLabel>
       <SortForm />
-    </>
+    </FilterWrapper>
   );
 };
