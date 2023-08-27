@@ -13,7 +13,8 @@ export const Button = styled.button`
   background-color: ${props => props.theme.colors.white};
   border-radius: 8px;
 
-  &:hover {
+  &:hover,
+  &:focus {
     transform: scale(1.05);
   }
 `;
@@ -25,7 +26,8 @@ export const Delete = styled(Button)`
 export const Clear = styled(Button)`
   position: absolute;
   top: 32px;
-  left: 180px;
+  right: 30px;
+  margin: 0;
   padding-bottom: ${props => props.theme.spacing(1)};
   padding-top: ${props => props.theme.spacing(1)};
   border: 1px solid ${props => props.theme.colors.dark};

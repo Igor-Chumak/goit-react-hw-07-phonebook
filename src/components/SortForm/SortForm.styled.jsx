@@ -7,15 +7,16 @@ export const SortWrapper = styled.div`
   /* margin-right: auto; */
   /* margin-bottom: ${props => props.theme.spacing(3)}; */
   /* max-width: ${props => props.theme.spacing(80)}; */
-  /* padding-bottom: ${props => props.theme.spacing(2)}; */
+  padding-bottom: ${props => props.theme.spacing(2)};
   /* padding-left: ${props => props.theme.spacing(5)}; */
   /* padding-right: ${props => props.theme.spacing(5)}; */
   /* font-weight: 600; */
   /* line-height: 1.5; */
-  /* outline: 1px solid; */
+  text-align: center;
+  /* outline: 1px solid red; */
 `;
 
-export const SortLabel = styled.label`
+export const SortLabelBox = styled.div`
   /* display: block; */
   /* position: relative; */
   /* margin-left: auto; */
@@ -27,50 +28,52 @@ export const SortLabel = styled.label`
   /* padding-right: ${props => props.theme.spacing(5)}; */
   /* font-weight: 600; */
   /* line-height: 1.5; */
-  /* outline: 1px solid; */
+  /* outline: 1px solid yellow; */
 `;
 
-export const FilterLabel = styled.label`
-  display: block;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: ${props => props.theme.spacing(3)};
-  max-width: ${props => props.theme.spacing(80)};
-  padding-bottom: ${props => props.theme.spacing(2)};
-  padding-left: ${props => props.theme.spacing(5)};
-  padding-right: ${props => props.theme.spacing(5)};
-  font-weight: 600;
-  line-height: 1.5;
-  /* outline: 1px solid; */
+export const SortLabel = styled.label`
+  display: inline-block;
+  /* position: relative; */
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  /* margin-bottom: ${props => props.theme.spacing(3)}; */
+  /* max-width: ${props => props.theme.spacing(80)}; */
+  padding: ${props => props.theme.spacing(2)};
+  /* padding-bottom: ${props => props.theme.spacing(2)}; */
+  /* padding-left: ${props => props.theme.spacing(5)}; */
+  /* padding-right: ${props => props.theme.spacing(5)}; */
+  color: ${props => props.theme.colors.gray};
+  /* font-weight: 600; */
+  font-size: ${props => props.theme.fontSizes.small};
+  /* line-height: 1.5; */
+  cursor: pointer;
+  border-radius: 6px;
+  box-shadow: ${props => props.theme.shadows.small};
+  /* outline: 1px solid green; */
+
+  input:checked + & {
+    background-color: ${props => props.theme.colors.white};
+    color: initial;
+  }
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
 `;
 
 export const SortInput = styled.input`
-  /* display: block; */
+  display: none;
   /* width: 80%; */
   /* padding: ${props => props.theme.spacing(2)}; */
   /* font-weight: 600; */
   /* font-size: ${props => props.theme.fontSizes.small}; */
   /* color: ${props => props.theme.colors.gray}; */
-  &:focus {
-    /* color: initial; */
-  }
-`;
-
-export const FilterInput = styled.input`
-  display: block;
-  width: 80%;
-  padding: ${props => props.theme.spacing(2)};
-  font-weight: 600;
-  font-size: ${props => props.theme.fontSizes.small};
-  color: ${props => props.theme.colors.gray};
-  &:focus {
+  /* outline: 1px solid yellow; */
+  /* &:checked {
     color: initial;
-  }
+  } */
+  /* &:focus {
+    color: initial;
+  } */
 `;
-
-// .btn - group{
-//   position: relative;
-//   display: inline - flex;
-//   vertical - align: middle;
-// }
