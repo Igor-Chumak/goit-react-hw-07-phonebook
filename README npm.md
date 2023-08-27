@@ -24,7 +24,7 @@
   }; -->
 - npm install axios >>> import axios from "axios";
 - npm install react-loader-spinner --save >>> import { Vortex } from
-  'react-loader-spinner';
+  'react-loader-spinner'; //https://github.com/mhnpd/react-loader-spinner
   <!-- <MagnifyingGlass
     visible={true}
     height="80"
