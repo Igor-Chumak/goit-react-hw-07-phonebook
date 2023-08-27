@@ -10,6 +10,8 @@ export const ContactListBox = styled.ul`
   padding-right: ${props => props.theme.spacing(5)};
 
   max-width: ${props => props.theme.spacing(140)};
+  max-height: calc(100vh - ${props => props.theme.spacing(125)});
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -19,4 +21,9 @@ export const ContactListBox = styled.ul`
   font-weight: 600;
   line-height: 1.2;
   /* outline: 1px solid; */
+`;
+
+export const ContactListNoItems = styled.h3`
+  margin-left: auto;
+  margin-right: auto;
 `;

@@ -16,7 +16,7 @@ export const ContactForm = () => {
   const [notification, setNotification] = useState('');
 
   const dispatch = useDispatch();
-  const { items: contacts } = useSelector(selectContacts);
+  const { items: contacts, isLoading } = useSelector(selectContacts);
 
   const searchContact = name => {
     return contacts.find(
@@ -75,7 +75,9 @@ export const ContactForm = () => {
             onChange={e => setNumber(e.target.value)}
           />
         </ContactFormLabel>
-        <ContactFormSubmit type="submit">Add contact</ContactFormSubmit>
+        <ContactFormSubmit type="submit" disabled={isLoading}>
+          Add contact
+        </ContactFormSubmit>
       </ContactFormForm>
       {notification && (
         <Notification

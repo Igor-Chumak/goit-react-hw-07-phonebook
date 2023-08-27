@@ -1,4 +1,4 @@
-import { ScaleLoader } from 'react-spinners/';
+import { ScaleLoader } from 'react-spinners';
 import { LoaderWrapper } from './Loader.styled';
 
 export const Loader = () => {

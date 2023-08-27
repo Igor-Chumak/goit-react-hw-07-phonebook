@@ -44,8 +44,8 @@
     wrapperClass="vortex-wrapper"
     colors={['red', 'green', 'blue', 'yellow', 'orange', 'purple']}
   /> -->
-  - npm install --save react-spinners >>> import ClipLoader from
-    "react-spinners/ClipLoader";
+  - npm install --save react-spinners >>> import {}ScaleLoader from
+    "react-spinners/{}ScaleLoader";
     //https://www.davidhu.io/react-spinners/storybook/?path=/docs/
   - npm i react-recipes --save >>> import { useLocalStorage } from
     "react-recipes";
