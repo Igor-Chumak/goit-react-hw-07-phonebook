@@ -48,8 +48,8 @@ const contactsSlice = createSlice({
     },
     [deleteContact.fulfilled](state, { payload }) {
       state.isLoading = false;
-      // console.log('Thunk success:>> ', payload);
-      const index = state.items.findIndex(contact => contact.id === payload);
+      // console.log('Thunk delete:>> ', payload);
+      const index = state.items.findIndex(item => item.id === payload.id);
       state.items.splice(index, 1);
     },
     [deleteContact.rejected](state, { payload }) {
