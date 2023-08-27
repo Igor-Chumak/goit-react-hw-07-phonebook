@@ -9,7 +9,7 @@ axios.defaults.baseURL = `https://${API_KEY}.mockapi.io/`;
 axios.defaults.headers = {};
 axios.defaults.params = {};
 
-export const getQuery = createAsyncThunk(
+export const getContacts = createAsyncThunk(
   'contacts/fetch.get',
   async (contactId = '', thunkAPI) => {
     try {

@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 // import { nanoid } from 'nanoid';
 import { INITIAL_CONTACTS } from 'data/initial';
-import { getQuery, addContact, deleteContact } from 'store/operationsAPI';
+import { getContacts, addContact, deleteContact } from 'store/operationsAPI';
 
 const contactsSlice = createSlice({
   name: 'contacts',
@@ -12,16 +12,16 @@ const contactsSlice = createSlice({
   },
   extraReducers: {
     // getQuery
-    [getQuery.pending](state, action) {
+    [getContacts.pending](state, action) {
       state.isLoading = true;
-      state.error = '';
+      state.error = null;
     },
-    [getQuery.fulfilled](state, { payload }) {
+    [getContacts.fulfilled](state, { payload }) {
       state.isLoading = false;
       // console.log('Thunk success:>> ', payload);
       state.items = payload;
     },
-    [getQuery.rejected](state, { payload }) {
+    [getContacts.rejected](state, { payload }) {
       state.isLoading = false;
       // console.log('Thunk rejected:>> ', payload);
       state.error = payload;
@@ -29,7 +29,7 @@ const contactsSlice = createSlice({
     // addContact
     [addContact.pending](state, action) {
       state.isLoading = true;
-      state.error = '';
+      state.error = null;
     },
     [addContact.fulfilled](state, { payload }) {
       state.isLoading = false;
@@ -44,7 +44,7 @@ const contactsSlice = createSlice({
     // deleteContact
     [deleteContact.pending](state, action) {
       state.isLoading = true;
-      state.error = '';
+      state.error = null;
     },
     [deleteContact.fulfilled](state, { payload }) {
       state.isLoading = false;
