@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Clear } from 'components';
+import { Clear, SortForm } from 'components';
 import { setFilter, selectFilter } from 'store';
 import { FilterLabel, FilterInput } from './Filter.styled';
 
@@ -26,6 +26,7 @@ export const Filter = () => {
           Clear
         </Clear>
       </FilterLabel>
+      <SortForm />
     </>
   );
 };
