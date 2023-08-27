@@ -9,21 +9,23 @@ export const Filter = () => {
   const handleChangeInputFilter = filter => dispatch(setFilter(filter));
 
   return (
-    <FilterLabel>
-      Find contacts by name
-      <FilterInput
-        type="text"
-        name="filter"
-        maxLength="22"
-        placeholder=""
-        id="filter"
-        autoFocus
-        value={filter}
-        onChange={e => handleChangeInputFilter(e.target.value.toLowerCase())}
-      />
-      <Clear type="button" onClick={() => handleChangeInputFilter('')}>
-        Clear
-      </Clear>
-    </FilterLabel>
+    <>
+      <FilterLabel>
+        Find contacts by name
+        <FilterInput
+          type="text"
+          name="filter"
+          maxLength="22"
+          placeholder=""
+          id="filter"
+          autoFocus
+          value={filter}
+          onChange={e => handleChangeInputFilter(e.target.value.toLowerCase())}
+        />
+        <Clear type="button" onClick={() => handleChangeInputFilter('')}>
+          Clear
+        </Clear>
+      </FilterLabel>
+    </>
   );
 };
