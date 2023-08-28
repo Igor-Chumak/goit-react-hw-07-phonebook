@@ -1,14 +1,13 @@
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from 'store';
-import { deleteContactThunk } from 'store/operationsAPI';
+import { api, selectIsLoading } from 'store';
 import { Delete } from 'components';
 import { ContactItem } from './ContactItems.styled';
 
 export const ContactItems = ({ name, number, id }) => {
-  const { isLoading } = useSelector(selectContacts);
+  const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
-  const handleDelete = itemId => dispatch(deleteContactThunk(itemId));
+  const handleDelete = itemId => dispatch(api.deleteContactThunk(itemId));
   return (
     <ContactItem>
       {name} : {number}

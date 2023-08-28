@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Notification } from 'components';
-import { selectContacts } from 'store';
-import { addContactThunk } from 'store/operationsAPI';
+import { api, selectContacts, selectIsLoading } from 'store';
 import {
   ContactFormForm,
   ContactFormLabel,
@@ -16,7 +15,8 @@ export const ContactForm = () => {
   const [notification, setNotification] = useState('');
 
   const dispatch = useDispatch();
-  const { items: contacts, isLoading } = useSelector(selectContacts);
+  const contacts = useSelector(selectContacts);
+  const isLoading = useSelector(selectIsLoading);
 
   const searchContact = name => {
     return contacts.find(
@@ -28,18 +28,14 @@ export const ContactForm = () => {
     e.preventDefault();
     if (name === '' || number === '') return;
     const searchResult = searchContact(name);
-    if (!searchResult) {
-      dispatch(addContactThunk({ name, number }));
-      e.currentTarget.reset();
-      setName('');
-      setNumber('');
-      return true;
-    } else {
-      setNotification(
+    if (searchResult)
+      return setNotification(
         `${searchResult.name} : ${searchResult.number} is already in contacts`
       );
-      return false;
-    }
+    dispatch(api.addContactThunk({ name, number }));
+    e.currentTarget.reset();
+    setName('');
+    setNumber('');
   };
 
   return (

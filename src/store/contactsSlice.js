@@ -31,18 +31,6 @@ const contactsSlice = createSlice({
         action => action.type.endsWith('/fulfilled'),
         handleFulfilled
       );
-    // getQuery
-    // [getContactsThunk.pending]: handlePending,
-    // [getContactsThunk.fulfilled]: handleGetContacts,
-    // [getContactsThunk.rejected]: handleRejected,
-    // addContact
-    // [addContactThunk.pending]: handlePending,
-    // [addContactThunk.fulfilled]: handleAddContact,
-    // [addContactThunk.rejected]: handleRejected,
-    // deleteContact
-    // [deleteContactThunk.pending]: handlePending,
-    // [deleteContactThunk.fulfilled]: handleDeleteContact,
-    // [deleteContactThunk.rejected]: handleRejected,
   },
 });
 

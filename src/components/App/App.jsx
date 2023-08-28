@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { selectContacts } from 'store';
+import { selectIsLoading, selectError } from 'store';
 import {
   Header,
   Section,
@@ -33,7 +33,8 @@ Notify.init({
 });
 
 export const App = () => {
-  const { isLoading, error } = useSelector(selectContacts);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
   return (
     <>
       <Header>
